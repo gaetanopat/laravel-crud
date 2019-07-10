@@ -23,7 +23,7 @@
           </li>
         </ul>
         <div class="card-body">
-          <a href="" class="card-link">Modifica prodotto</a>
+          <a href="{{ route('products.edit', $product->id) }}" class="card-link">Modifica prodotto</a>
           <a href="{{ route('products.index') }}" class="card-link">Torna alla Home</a>
         </div>
       </div>

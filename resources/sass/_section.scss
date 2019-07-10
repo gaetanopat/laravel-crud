@@ -1,6 +1,6 @@
 // per la sezione dell'index.php
 section.show_all_products{
-  height: calc(100vh - 70px - 30px);
+  min-height: calc(100vh - 70px - 30px);
   h3{
     margin: 20px 0;
     text-align: center;
@@ -46,7 +46,7 @@ section.show_all_products{
 
 // per tutte le altre sezioni, visualizzazione, modifica, cancellazione
 section.show_single_product{
-  height: calc(100vh - #{$header_height} - #{$footer_height});
+  min-height: calc(100vh - #{$header_height} - #{$footer_height});
   .container{
     display: flex;
     align-items: center;
@@ -60,8 +60,3 @@ section.show_single_product{
     }
   }
 }
-
-// section.edit_single_room{
-//   height: calc(100vh - #{$header_height} - #{$footer_height});
-//   text-align:center;
-// }

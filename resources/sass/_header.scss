@@ -12,7 +12,7 @@ header{
   }
   .header-right{
     text-align: right;
-    ul li{
+    .container_homepage{
       display: inline-block;
       line-height: $header_height;
       padding: 0 20px;

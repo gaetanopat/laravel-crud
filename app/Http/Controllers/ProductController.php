@@ -14,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('actions.index', compact('products'));
+      $products = Product::all();
+      return view('actions.index', compact('products'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('actions.create');
+      return view('actions.create');
     }
 
     /**
@@ -36,11 +36,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $dati = $request->all();
-        $new_product = new Product();
-        $new_product->fill($dati);
-        $new_product->save();
-        return redirect()->route('products.index');
+      $validatedData = $request->validate([
+        'name' => 'required|max:255|bail',
+        'description' => 'required',
+        'category' => 'required',
+        'price' => 'required|numeric|between:0,9999.99',
+        // 'sale_price' => 'numeric|between:0,9999.99'
+      ]);
+      $dati = $request->all();
+      $new_product = new Product();
+      $new_product->fill($dati);
+      $new_product->save();
+      return redirect()->route('products.index');
     }
 
     /**
@@ -51,7 +58,12 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('actions.show', compact('product'));
+      // se non ci fosse Product metterei $product = Product::find($product_id);
+      // se qualcuno inserisce un qualcosa diverso dall'id del prodotto gli ritorno la pagina 404 not found
+      if(empty($product)){
+        abort(404);
+      }
+      return view('actions.show', compact('product'));
     }
 
     /**
@@ -62,7 +74,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+      if(empty($product)){
+        abort(404);
+      }
+      return view('actions.edit', compact('product'));
     }
 
     /**
@@ -74,7 +89,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+      $validatedData = $request->validate([
+        'name' => 'required|max:255|bail',
+        'description' => 'required',
+        'category' => 'required',
+        'price' => 'required|numeric|between:0,9999.99',
+        // 'sale_price' => 'numeric|between:0,9999.99'
+      ]);
+      $dati = $request->all();
+      // $prodotto = Product::find($product);
+      $product->update($dati);
+      return redirect()->route('products.index');
     }
 
     /**
@@ -85,6 +110,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+      // $prodotto = Product::find($product);
+      $product->delete();
+      return redirect()->route('products.index');
     }
 }

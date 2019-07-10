@@ -49213,6 +49213,42 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(document).ready(function () {
+  // if($('input[name="price"]').length > 0){
+  //   $('input[name="price"]').keyup(function(){
+  //     var input_value = $(this).val();
+  //     input_value = input_value.replace(',', '.');
+  //     $(this).val(input_value);
+  //   });
+  // }
+  if ($('#edit_product_form').length > 0) {
+    $('#edit_product_form').on('submit', function (event) {
+      event.preventDefault();
+      var price_value = $('input[name="price"]').val();
+      var sale_price_value = $('input[name="sale_price"]').val();
+      price_value = price_value.replace(',', '.');
+      sale_price_value = sale_price_value.replace(',', '.');
+      $('input[name="price"]').val(price_value);
+      $('input[name="sale_price"]').val(sale_price_value);
+      $(this).unbind('submit');
+      $(this).submit();
+    });
+  }
+
+  if ($('#create_product_form').length > 0) {
+    $('#create_product_form').on('submit', function (event) {
+      event.preventDefault();
+      var price_value = $('input[name="price"]').val();
+      var sale_price_value = $('input[name="sale_price"]').val();
+      price_value = price_value.replace(',', '.');
+      sale_price_value = sale_price_value.replace(',', '.');
+      $('input[name="price"]').val(price_value);
+      $('input[name="sale_price"]').val(sale_price_value);
+      $(this).unbind('submit');
+      $(this).submit();
+    });
+  }
+});
 
 /***/ }),
 

@@ -36,19 +36,19 @@ header .header-right {
   text-align: right;
 }
 
-header .header-right ul li {
+header .header-right .container_homepage {
   display: inline-block;
   line-height: 70px;
   padding: 0 20px;
 }
 
-header .header-right ul li a {
+header .header-right .container_homepage a {
   text-decoration: none;
   color: #33475b;
 }
 
 section.show_all_products {
-  height: calc(100vh - 70px - 30px);
+  min-height: calc(100vh - 70px - 30px);
 }
 
 section.show_all_products h3 {
@@ -101,7 +101,7 @@ section.show_all_products td.no_products {
 }
 
 section.show_single_product {
-  height: calc(100vh - 70px - 30px);
+  min-height: calc(100vh - 70px - 30px);
 }
 
 section.show_single_product .container {

@@ -7,7 +7,6 @@
     <div class="container">
       <h3 class="float-left">Visualizzazione prodotti</h3>
       <a href="{{ route('products.create') }}" class="btn btn-primary float-right">Crea nuovo prodotto</a>
-
       <table>
         <tr>
           <th class="text-center">ID prodotto</th>
@@ -32,10 +31,11 @@
               -
             @endif
           </td>
-          <td class="text-center"><a href="{{ route('products.show', $product->id) }}">Visualizza</a> - <a href="actions/edit.php?id=">Modifica</a> -
-            <form class="form_delete" action="actions/delete.php" method="post">
-              <input type="hidden" value="" name="id">
+          <td class="text-center"><a href="{{ route('products.show', $product->id) }}">Visualizza</a> - <a href="{{ route('products.edit', $product->id) }}">Modifica</a> -
+            <form class="form_delete" action="{{ route('products.destroy', $product->id )}}" method="post">
               <input type="submit" name="" value="Cancella">
+              @method('DELETE')
+              @csrf
             </form>
           </td>
         </tr>
