@@ -40,11 +40,28 @@ header .header-right .container_homepage {
   display: inline-block;
   line-height: 70px;
   padding: 0 20px;
+  /* per la casella input */
+  /* per il bottone (link) 'Cerca' */
 }
 
 header .header-right .container_homepage a {
   text-decoration: none;
   color: #33475b;
+}
+
+header .header-right .container_homepage .input_search_product {
+  width: 200px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+header .header-right .container_homepage a.search {
+  text-decoration: none;
+  padding: 7px 20px;
+  color: white;
+  border-radius: 20px;
+  background-color: #33475b;
+  font-weight: bold;
 }
 
 section.show_all_products {
@@ -105,6 +122,7 @@ section.show_single_product {
 }
 
 section.show_single_product .container {
+  min-height: calc(100vh - 70px - 30px);
   display: flex;
   align-items: center;
   justify-content: center;

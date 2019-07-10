@@ -48,6 +48,7 @@ section.show_all_products{
 section.show_single_product{
   min-height: calc(100vh - #{$header_height} - #{$footer_height});
   .container{
+    min-height: calc(100vh - #{$header_height} - #{$footer_height});
     display: flex;
     align-items: center;
     justify-content: center;

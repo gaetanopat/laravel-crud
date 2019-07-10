@@ -6,6 +6,8 @@
     <div class="header-right">
       <div class="container_homepage">
         <a href="{{ route('products.index') }}"><strong>Homepage</strong></a>
+        <input class="input_search_product" type="text" name="" value="" placeholder="Digita il prodotto da cercare">
+        <a class="search" onclick="return false" href="#">Cerca</a>
       </div>
     </div>
   </div>
