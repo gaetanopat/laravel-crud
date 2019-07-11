@@ -49221,6 +49221,30 @@ $(document).ready(function () {
   //     $(this).val(input_value);
   //   });
   // }
+  if ($('input[name="name"]').length > 0) {
+    $('input[name="name"]').keyup(function () {
+      var name_control = $(this).val();
+      name_control = name_control.charAt(0).toUpperCase() + name_control.slice(1).toLowerCase();
+      $(this).val(name_control);
+    });
+  }
+
+  if ($('textarea[name="description"]').length > 0) {
+    $('textarea[name="description"]').keyup(function () {
+      var description_control = $(this).val();
+      description_control = description_control.charAt(0).toUpperCase() + description_control.slice(1).toLowerCase();
+      $(this).val(description_control);
+    });
+  }
+
+  if ($('input[name="category"]').length > 0) {
+    $('input[name="category"]').keyup(function () {
+      var category_control = $(this).val();
+      category_control = category_control.charAt(0).toUpperCase() + category_control.slice(1).toLowerCase();
+      $(this).val(category_control);
+    });
+  }
+
   if ($('#edit_product_form').length > 0) {
     $('#edit_product_form').on('submit', function (event) {
       event.preventDefault();
@@ -49229,8 +49253,8 @@ $(document).ready(function () {
       price_value = price_value.replace(',', '.');
       sale_price_value = sale_price_value.replace(',', '.');
       $('input[name="price"]').val(price_value);
-      $('input[name="sale_price"]').val(sale_price_value);
-      $(this).unbind('submit');
+      $('input[name="sale_price"]').val(sale_price_value); // $(this).unbind('submit');
+
       $(this).submit();
     });
   }
