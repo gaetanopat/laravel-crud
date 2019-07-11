@@ -77,7 +77,7 @@ $(document).ready(function(){
       $('input[name="price"]').val(price_value);
       $('input[name="sale_price"]').val(sale_price_value);
 
-      // $(this).unbind('submit');
+      $(this).unbind('submit');
       $(this).submit();
     });
   }

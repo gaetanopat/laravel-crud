@@ -49253,8 +49253,8 @@ $(document).ready(function () {
       price_value = price_value.replace(',', '.');
       sale_price_value = sale_price_value.replace(',', '.');
       $('input[name="price"]').val(price_value);
-      $('input[name="sale_price"]').val(sale_price_value); // $(this).unbind('submit');
-
+      $('input[name="sale_price"]').val(sale_price_value);
+      $(this).unbind('submit');
       $(this).submit();
     });
   }
