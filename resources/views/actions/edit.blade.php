@@ -58,6 +58,9 @@
           <label class="col-5 col-form-label">Prezzo scontato: </label>
           <div class="col-7">
             <input type="number" step="any" class="form-control" placeholder="Inserisci il prezzo scontato" name="sale_price" value="{{ old('sale_price', $product->sale_price) }}">
+            @error('price')
+              <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="form-group text-center">

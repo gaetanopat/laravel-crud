@@ -94,7 +94,7 @@ class ProductController extends Controller
         'description' => 'required',
         'category' => 'required',
         'price' => 'required|numeric|between:0,9999.99',
-        // 'sale_price' => 'numeric|between:0,9999.99'
+        'sale_price' => 'nullable|numeric|min:0|lt:price'
       ]);
       $dati = $request->all();
       // $prodotto = Product::find($product);

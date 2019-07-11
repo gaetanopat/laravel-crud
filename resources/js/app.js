@@ -39,7 +39,7 @@ $(document).ready(function(){
   //     $(this).val(input_value);
   //   });
   // }
-
+  
   if($('#edit_product_form').length > 0){
     $('#edit_product_form').on('submit', function(event){
       event.preventDefault();
@@ -55,7 +55,7 @@ $(document).ready(function(){
       $(this).submit();
     });
   }
-  
+
   if($('#create_product_form').length > 0){
     $('#create_product_form').on('submit', function(event){
       event.preventDefault();
